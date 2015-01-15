@@ -1,0 +1,9 @@
+#counts the number of vowels in a string s
+vowel_count= 0
+for char in s:
+    if char == 'a' or char== 'e' or char == 'i' or char == 'o' or char == 'u':
+        vowel_count += 1
+print 'The number of vowels in your input is ' + str(vowel_count)
+
+
+    
