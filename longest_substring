@@ -1,0 +1,14 @@
+start_str =0 
+long_str = s[start_str]
+ans_string= s[start_str]
+while start_str < len(s)-1:   
+    if s[start_str+1] >= s[start_str]:
+            ans_string = ans_string + s[start_str+1] 
+            print ans_string
+    else:
+        ans_string = s[start_str+1]
+        
+    if len(ans_string) > len(long_str):
+        long_str = ans_string
+    start_str +=1
+print "Longest substring in alphabetical order is: "+long_str
