@@ -1,0 +1,22 @@
+balance = 320000
+annualInterestRate = 0.2
+month_balance = 0
+updatedBalancemonth = balance
+fixed_monthpay =0.0
+monthlyInterestRate = (annualInterestRate/12.0)
+month_lb = balance / 12.0
+month_ub = (balance * (1+monthlyInterestRate)**12)/12.0
+while abs(month_ub - month_lb) > 0.01:
+    updatedBalancemonth = balance
+    fixed_monthpay = (month_ub + month_lb) /2.0
+    
+    for i in range(1,13):                           
+        month_balance = updatedBalancemonth - fixed_monthpay
+        updatedBalancemonth = (month_balance) + (monthlyInterestRate * month_balance) 
+        if i==12 and updatedBalancemonth > 0.01:
+            month_lb = fixed_monthpay
+        elif i==12 and updatedBalancemonth < 0.01:
+            month_ub = fixed_monthpay
+            
+fixed_monthpay = round(fixed_monthpay,2)         
+print 'Lowest Payment: '+ str(fixed_monthpay)          
