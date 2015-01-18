@@ -1,0 +1,19 @@
+balance = 4773
+annualInterestRate = 0.2
+monthyInterestRate = 0.0
+month_balance = 0
+updatedBalancemonth = balance
+fixed_monthpay =10
+
+
+while updatedBalancemonth > 0:
+    updatedBalancemonth = balance
+    for i in range(1,13):
+                             
+        monthyInterestRate = annualInterestRate/12.0
+        month_balance = updatedBalancemonth - fixed_monthpay
+        updatedBalancemonth = (month_balance) + (monthyInterestRate * month_balance) 
+        if i==12 and updatedBalancemonth > 0:
+            fixed_monthpay += 10
+            
+print 'Lowest Payment: '+ str(fixed_monthpay)          
