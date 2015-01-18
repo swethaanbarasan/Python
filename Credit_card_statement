@@ -1,0 +1,23 @@
+balance = 4842
+annualInterestRate = 0.2
+monthlyPaymentRate = 0.04
+monthyInterestRate = 0
+minmonthpay = 0
+month_balance = 0
+updatedBalancemonth = balance
+total_paid = 0
+
+for i in range(1,13):
+    
+    monthyInterestRate = annualInterestRate/12.0
+    minmonthpay = (monthlyPaymentRate)* updatedBalancemonth
+    month_balance = updatedBalancemonth - minmonthpay
+    updatedBalancemonth = month_balance + (month_balance * monthyInterestRate)
+    
+    print 'Month: ' + str(i)
+    print 'Minimum monthly payment: '+ str(round(minmonthpay,2))
+    print 'Remaining balance: '+ str(round(updatedBalancemonth,2))
+    total_paid += minmonthpay
+    
+print 'Total paid: '+ str(round(total_paid,2))
+print 'Remaining balance: '+ str(round(updatedBalancemonth,2))
