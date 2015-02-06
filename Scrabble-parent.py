@@ -294,17 +294,18 @@ def playGame(wordList):
     trial = 0
     
     while True:
+        n = HAND_SIZE
         user_input = raw_input('Enter n to deal a new hand, r to replay the last hand, or e to end game: ')
         if user_input == 'r': 
             if trial == 0:
                 print 'You have not played a hand yet. Please play a new hand first!'
             else:
                 trial += 1
-                playHand(hand, wordList, HAND_SIZE)
+                playHand(hand, wordList, n)
         elif user_input == 'n':
             trial += 1
-            hand = dealHand(HAND_SIZE)
-            playHand(hand, wordList, HAND_SIZE)
+            hand = dealHand(n)
+            playHand(hand, wordList, n)
         elif user_input=='e':
             break
            
