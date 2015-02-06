@@ -1,4 +1,4 @@
-from ps4a import *
+from Scrabble-parent import *
 import time
 
 
