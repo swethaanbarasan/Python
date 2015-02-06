@@ -1,4 +1,4 @@
-from Scrabble-parent import *
+from scrabble-parent import *
 import time
 
 
@@ -25,8 +25,8 @@ def compChooseWord(hand, wordList, n):
     """
     
     # Create a new variable to store the best word seen so far (initially None)  
+        
     final_word = ''
-    score = 0
     updated_score = 0
     CHECK = True
     # For each word in the wordList
@@ -35,13 +35,10 @@ def compChooseWord(hand, wordList, n):
         # If you can construct the word from your hand
         updatehand = hand.copy()
         for e in word:
-            
             if updatehand.get(e,0) == 0:
-                
                 CHECK = False
                 break
             else:
-                
                 updatehand[e] = updatehand.get(e,0) - 1
         
         # (hint: you can use isValidWord, or - since you don't really need to test if the word is in the wordList - you can make a similar function that omits that test)
@@ -49,7 +46,7 @@ def compChooseWord(hand, wordList, n):
         # Find out how much making that word is worth
         if CHECK == True:
            
-            score = getWordScore(word,HAND_SIZE)
+            score = getWordScore(word,n)
                 
         # If the score for that word is higher than your best score
         
@@ -59,13 +56,8 @@ def compChooseWord(hand, wordList, n):
                 final_word = word
                 
     # return the best word you found.
-        else:
-            continue
-    
     return final_word 
     
-
-
 #
 # Problem #7: Computer plays a hand
 #
@@ -97,7 +89,7 @@ def compPlayHand(hand, wordList, n):
         print 
         print 'Current Hand: ',
         displayHand(hand) 
-        word = compChooseWord(hand, wordList, HAND_SIZE)
+        word = compChooseWord(hand, wordList, n)
         score= getWordScore(word,n)
         total_score += score
         if word == '':
@@ -151,7 +143,7 @@ def playGame(wordList):
              while True:       
                 user_input = raw_input("Enter u to have yourself play, c to have the computer play: ")
                 if user_input == 'u':
-                    playHand(hand, wordList, HAND_SIZE)
+                    playHand(hand, wordList,HAND_SIZE)
                     break
                 elif user_input == 'c':
                     compPlayHand(hand, wordList, HAND_SIZE)
